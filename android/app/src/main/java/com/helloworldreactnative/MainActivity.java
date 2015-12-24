@@ -74,5 +74,5 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onResume(this);
         }
-    }
+    }6
 }

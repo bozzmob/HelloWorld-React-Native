@@ -19,20 +19,23 @@ var REQUEST_URL = API_URL + PARAMS;
 var HelloWorldReactNative = React.createClass({
   
   getInitialState: function() {
+    console.log("getInitialState");
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
-      }),
+      } ),
       loaded: false,
     };
   },
   
   componentDidMount: function() {
+    console.log("componentDidMount");
     this.fetchData();
   },
 
   
   fetchData: function() {
+    console.log("fetchData");
     fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
@@ -45,20 +48,22 @@ var HelloWorldReactNative = React.createClass({
   },
 
   render: function() {
+    console.log("render");
     if (!this.state.loaded) {
       return this.renderLoadingView();
     }
+
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderMovie}
-        style={styles.listView} 
-        />
+        style={styles.listView} />
       );
     },
 
 
   renderLoadingView: function() {
+    console.log("renderLoadingView");
     return (
       <View style={styles.container}>
         <Text>
@@ -70,6 +75,7 @@ var HelloWorldReactNative = React.createClass({
 
 
   renderMovie: function(movie) {
+    console.log("renderMovie"+JSON.stringify(movie));
     return (
       <View style={styles.container}>
         <Image
